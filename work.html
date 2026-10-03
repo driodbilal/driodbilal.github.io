@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Work · Bilal Asif</title>
+<meta name="description" content="Webflow websites and AI automations by Bilal Asif.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html">Bilal Asif<span>.</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="webflow.html">Webflow</a>
+      <a href="automation.html">AI Automation</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a class="btn btn-primary" href="https://calendar.app.google/65XUmDzd4VcXDj1s9" target="_blank" rel="noopener">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Work</span>
+      <h1>Websites and automations, live today.</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-filter="all" aria-pressed="true">All<span id="n-all"></span></button>
+        <button type="button" data-filter="webflow" aria-pressed="false">Webflow<span id="n-webflow"></span></button>
+        <button type="button" data-filter="automation" aria-pressed="false">AI Automation<span id="n-automation"></span></button>
+      </div>
+      <div class="work" id="list"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <div><h2>Like what you see?</h2><p>Let's talk about your project.</p></div>
+        <div class="ctas">
+          <a class="btn btn-primary" href="https://calendar.app.google/65XUmDzd4VcXDj1s9" target="_blank" rel="noopener">Book a 30-min call</a>
+          <a class="btn btn-ghost" href="index.html#contact">Send a message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Bilal Asif</span>
+    <nav aria-label="Elsewhere">
+      <a href="https://www.linkedin.com/in/hy-bilal/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.upwork.com/freelancers/~016bfbf60147683d55" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://github.com/driodbilal" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="projects.js"></script>
+<script>
+(function () {
+  var list = document.getElementById('list');
+  var buttons = document.querySelectorAll('.filters button');
+  ['all', 'webflow', 'automation'].forEach(function (k) {
+    document.getElementById('n-' + k).textContent =
+      PROJECTS.filter(function (p) { return k === 'all' || p.type === k; }).length;
+  });
+  function show(kind) {
+    renderProjects(list, function (p) { return kind === 'all' || p.type === kind; });
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === kind)); });
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { show(b.dataset.filter); history.replaceState(null, '', '#' + b.dataset.filter); });
+  });
+  var start = (location.hash || '').slice(1);
+  show(start === 'webflow' || start === 'automation' ? start : 'all');
+})();
+</script>
+</body>
+</html>

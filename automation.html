@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Automation · Bilal Asif</title>
+<meta name="description" content="AI automations for content, leads and reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html">Bilal Asif<span>.</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="webflow.html">Webflow</a>
+      <a href="automation.html" aria-current="page">AI Automation</a>
+      <a href="work.html">Work</a>
+      <a class="btn btn-primary" href="https://calendar.app.google/65XUmDzd4VcXDj1s9" target="_blank" rel="noopener">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">AI automation</span>
+      <h1>Hand the repetitive work to AI.</h1>
+      <p>I build automations for content, leads and reporting, with a human check where it matters.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://calendar.app.google/65XUmDzd4VcXDj1s9" target="_blank" rel="noopener">Let's talk</a>
+        <a class="btn btn-ghost" href="#projects">See projects</a>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">What I automate</span><h2>Where AI saves the most time</h2></div>
+      <div class="offer">
+        <div><b>Content</b><span>Blogs researched, written and checked by AI.</span></div>
+        <div><b>Leads</b><span>Every inquiry saved, sorted and answered.</span></div>
+        <div><b>Reporting</b><span>Weekly numbers pulled together for you.</span></div>
+        <div><b>Team training</b><span>Your team learns to work with AI.</span></div>
+      </div>
+      <div class="more">
+        <ul class="chips" aria-label="Tools I use">
+          <li>n8n</li><li>Claude Code</li><li>Make</li><li>Zapier</li><li>ClickUp</li><li>Slack</li><li>Klaviyo</li><li>WordPress</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">How I build</span><h2>Built the modern way</h2></div>
+      <div class="offer">
+        <div><b>AI agents</b><span>Claude Code agents that research, write and check their own work.</span></div>
+        <div><b>MCP connections</b><span>Claude connected straight to your business tools.</span></div>
+        <div><b>Self-checking</b><span>Quality checks and retries before a person sees anything.</span></div>
+        <div><b>Human approval</b><span>Nothing goes out without your sign-off.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Projects</span><h2>Automations running today</h2></div>
+      <div class="work" id="list"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Process</span><h2>How an automation gets built</h2></div>
+      <ol class="steps">
+        <li><b>Audit</b><span>Find where time is lost.</span></li>
+        <li><b>Map</b><span>Draw the workflow.</span></li>
+        <li><b>Build</b><span>Automate step by step.</span></li>
+        <li><b>Test</b><span>Run on real data.</span></li>
+        <li><b>Hand over</b><span>Docs and training.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <div><h2>What would you hand to AI first?</h2><p>Tell me on a quick call.</p></div>
+        <div class="ctas">
+          <a class="btn btn-primary" href="https://calendar.app.google/65XUmDzd4VcXDj1s9" target="_blank" rel="noopener">Book a 30-min call</a>
+          <a class="btn btn-ghost" href="index.html#contact">Send a message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Bilal Asif</span>
+    <nav aria-label="Elsewhere">
+      <a href="https://www.linkedin.com/in/hy-bilal/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.upwork.com/freelancers/~016bfbf60147683d55" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://github.com/driodbilal" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="projects.js"></script>
+<script>renderProjects(document.getElementById('list'), function (p) { return p.type === 'automation'; });</script>
+</body>
+</html>
