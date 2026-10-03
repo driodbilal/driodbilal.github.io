@@ -157,10 +157,17 @@ document.getElementById('inquiry').addEventListener('submit', function (e) {
   btn.disabled = true; note.textContent = 'Sending...';
   fetch('https://formsubmit.co/ajax/basif388@gmail.com', {
     method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
-  }).then(function (r) { return r.json(); }).then(function (res) {
-    if (String(res.success) !== 'true') throw new Error(res.message || 'failed');
+  }).then(function (r) {
+    return r.text().then(function (t) {
+      var res = {}; try { res = JSON.parse(t); } catch (err) {}
+      // FormSubmit sometimes returns success as a string or omits it; a 2xx without an explicit failure counts as sent.
+      var failed = !r.ok || String(res.success) === 'false';
+      if (failed) throw new Error(res.message || ('HTTP ' + r.status));
+    });
+  }).then(function () {
     form.reset(); note.textContent = "Thanks! I'll get back to you within one working day.";
-  }).catch(function () {
+  }).catch(function (err) {
+    if (window.console) console.warn('Form error:', err && err.message);
     note.textContent = 'Something went wrong. Please email me at basif388@gmail.com.';
   }).finally(function () { btn.disabled = false; });
 });
